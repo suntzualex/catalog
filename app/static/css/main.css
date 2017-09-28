@@ -1,0 +1,27 @@
+body {
+  padding-top: 50px;
+ }
+
+.top-pad {
+  padding: 20px 10px;
+  text-align: center;
+ }
+
+ a{
+   text-align: center;
+   color: blue;
+ }
+
+.well{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+.separator{
+  margin-left: 2px;
+  margin-right: 2px;
+}

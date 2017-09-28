@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block container %}
+        {% if current_user.is_authenticated %}
+        <div class="row text-center">
+        <p>You are logged in as: {{ current_user.username }}
+           to login as another user please first logout.</p>
+            <p><a href="{{ url_for('logout') }}">Logout</a></p>
+          </div>
+        {% else %}
+        <div class="row text-center">
+            <h3>Login</h3>
+            <div class="row onl_row-sm-offset-3 onl_socialButtons">
+          <div class="col-xs-2 col-sm-2">
+            <a href="{{ url_for('oauth_authorize', provider='facebook') }}" class="btn btn-lg btn-block onl_btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+              <i class="fa fa-facebook fa-2x"></i>
+              <span class="hidden-xs"></span>
+            </a>
+          </div>
+          <div class="col-xs-2 col-sm-2">
+            <a href="{{ url_for('oauth_authorize', provider='twitter') }}" class="btn btn-lg btn-block onl_btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+              <i class="fa fa-twitter fa-2x"></i>
+              <span class="hidden-xs"></span>
+            </a>
+          </div>
+          <div class="col-xs-2 col-sm-2">
+            <a href="{{ url_for('oauth_authorize', provider='google') }}" class="btn btn-lg btn-block onl_btn-google-plus" data-toggle="tooltip" data-placement="top" title="Google Plus">
+              <i class="fa fa-google-plus fa-2x"></i>
+              <span class="hidden-xs"></span>
+            </a>
+          </div>
+</div>
+            <!-- <p><a href="{{ url_for('oauth_authorize', provider='facebook') }}">
+							Login with Facebook</a></p>
+            <p><a href="{{ url_for('oauth_authorize', provider='twitter') }}">
+							Login with Twitter</a></p>
+						<p><a href="{{ url_for('oauth_authorize', provider='google') }}">
+							Login with Google</a></p> -->
+            </div>
+        {% endif %}
+{% endblock %}

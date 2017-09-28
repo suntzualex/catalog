@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block navigation %}
+<!-- remove if empty -->
+{% endblock %}
+{% block container %}
+<div class="top-pad">
+
+  <div class="col-sm-6">
+  <h3 class="title">Categories</h3>
+{% for category in categories %}
+  {% if category %}
+<div id="category" class="well well-sm">
+<p>
+<a href="{{ url_for('showItems', id=category.id) }}">{{ category.name }}</a>
+</p>
+</div>
+{% else %}
+<p>No Category to show</p>
+{% endif %}
+{% endfor %}
+</div>
+
+<div class="col-sm-6">
+  <h3 class="title">Latest items</h3>
+  {% for item in latest_items %}
+  <div id="latest_items" class="well well-sm">
+  <p>
+  <a href="{{ url_for('item', id=item.id) }}">{{ item.title }}
+  ({{cat_items[item.title]}}) </a>
+</p>
+  </div>
+  {% endfor %}
+</div>
+
+</div>
+{% endblock %}

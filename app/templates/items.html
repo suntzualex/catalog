@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block container %}
+<div class="top-pad">
+<h3>All items for Category: {{ category.name }} ({{ itemCount }}
+ items)</h3>
+{% if not items %}
+<p>There are no items for this category yet.</p>
+{% endif %}
+<div class="top-pad">
+{% for item in items %}
+<div class="well well-sm">
+<p>
+<a href="{{ url_for('item', id=item.id) }}">{{ item.title }}</a>
+</p>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

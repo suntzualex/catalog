@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block container %}
+{% if item %}
+<form method="POST" action="{{ url_for('deleteItem', id=item.id) }}">
+
+<div class="form-group">
+<label for="delete">Are you sure you want to delete:</label>
+  <input type="submit" name="action" value="Yes Delete" class="form-control">
+  <input type="submit" name="action" value="No thanks take me back" class="form-control">
+</div>
+</form>
+{% else %}
+<h2>The item you requested to delete could not be found</h2>
+<p>Check the catalog to find out if the item is stil there.
+  <a href="{{ url_for('index') }}">Back to Catalog</a>
+</p>
+{% endif %}
+
+{% endblock %}

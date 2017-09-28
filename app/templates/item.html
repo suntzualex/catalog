@@ -1,0 +1,26 @@
+
+{% extends 'index.html' %}
+{% block container %}
+<div class="top-pad">
+<h3>{{ item.title }}</h3>
+<div class="well well-sm">
+<p>
+  {{ item.description }}
+</p>
+{% if current_user.is_authenticated %}
+<ul class="item-menu">
+<li>
+  <a href="{{ url_for('deleteItem', id=item.id) }}">Delete Item</a>
+  <span class="separator">|</span>
+  <a href="{{ url_for('editItem', id=item.id) }}">Edit Item</a>
+</li>
+</ul>
+{% endif %}
+<a href="{{ url_for('showItems', id=item.category) }}" class="btn btn-info"
+   role="button">Back To {{ categoryName }}</a>
+<a href="{{ url_for('index') }}" class="btn btn-info"
+   role="button">Back To Index</a>
+
+</div>
+</div>
+{% endblock %}
